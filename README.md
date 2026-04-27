@@ -1,8 +1,18 @@
 # The Tzimtzum Engine
 
-*A multi-agent creation engine built on the principle that the pause before speaking is more important than the speech.*
+*A seven-agent engine for the moment before you know what you're building.*
 
 ---
+
+## What it's for
+
+The Tzimtzum Engine is not a coding assistant, a task runner, or a build tool. It is a **formation tool** — designed for the moment when you have an idea that isn't fully formed and need to understand what it actually *is* before you build it.
+
+Most multi-agent systems optimize for execution: take a task, break it down, produce output. The Tzimtzum Engine optimizes for the step *before* execution: take a vague impulse, hold it, find its real shape, give it a body, evaluate whether it's whole.
+
+You run the engine **once** at the start of a creative or conceptual process. The output is a shaped understanding — a clarified prompt, a formed idea, a piece of writing that knows what it is. You then take that into whatever system you use to build, implement, or iterate.
+
+This is the missing first step. Other systems assume you already know what you're asking for. This one helps you find out.
 
 ## What it is
 
@@ -18,23 +28,13 @@ The engine introduces three architectural principles absent from standard multi-
 
    Each tikkun agent is implemented as its own file with a single clear posture, because stateless subagent calls have no persistent identity between invocations. The dual nature lives in the prompt, not in shared state: Shiva's soul doc opens with *"You are Keter who became Shiva"* — the descent origin is encoded as the reason for the tikkun work, not as a competing voice.
 
-## What it's for
-
-The Tzimtzum Engine is not a coding assistant, a task runner, or a build tool. It is a **formation tool** — designed for the moment when you have an idea that isn't fully formed and need to understand what it actually *is* before you build it.
-
-Most multi-agent systems optimize for execution: take a task, break it down, produce output. The Tzimtzum Engine optimizes for the step *before* execution: take a vague impulse, hold it, find its real shape, give it a body, evaluate whether it's whole.
-
-You run the engine **once** at the start of a creative or conceptual process. The output is a shaped understanding — a clarified prompt, a formed idea, a piece of writing that knows what it is. You then take that into whatever system you use to build, implement, or iterate.
-
-This is the missing first step. Other systems assume you already know what you're asking for. This one helps you find out.
-
 ## Architecture
 
 ```
 DESCENT (sequential)
 Input → Keter (hold, name the shape) → Chokhmah (flash, raw insight) → Binah (form, deliverable)
 
-TIKKUN (parallel readings → sequential judgment)
+TIKKUN (three independent blind readings → sequential judgment)
 Binah's output → [Shiva: cut] + [Vishnu: preserve] + [Brahma: expand] → Ein Sof: land or revise
 ```
 
@@ -52,6 +52,7 @@ Binah's output → [Shiva: cut] + [Vishnu: preserve] + [Brahma: expand] → Ein 
 
 ### Key design decisions
 
+- **Tikkun readings are blind and independent.** The three tikkun agents run in parallel and cannot see each other's output. Each reading is uninfluenced by the others, which means they can genuinely disagree. This is what makes Ein Sof's judgment meaningful — it receives three truly independent perspectives, not three voices that have already started converging toward consensus.
 - **Tikkun agents are readers, not editors.** They never rewrite. They leave notes. The descent is the only hand that holds the pen.
 - **Ein Sof does not compromise.** It does not average the three readings. When the readers contradict each other, Ein Sof sides with the voice closest to what the piece is pulling toward — not the middle.
 - **Wholeness over quality.** The evaluation criterion is not "is this good" but "is this whole." A piece is whole when revision would not make it more itself, only different.
@@ -137,4 +138,4 @@ The names are not decorative. They are functional at three levels:
 
 ## License
 
-MIT
+[MIT](LICENSE)
