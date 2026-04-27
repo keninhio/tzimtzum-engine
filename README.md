@@ -14,7 +14,19 @@ The engine introduces three architectural principles absent from standard multi-
 
 2. **Information-diet-as-constraint** — selective input withholding prevents downstream agents from collapsing into each other's roles. The second agent (Chokhmah) receives *only* Keter's contracted shape, never the original input. This structural contraction prevents Chokhmah from drifting into the third agent's (Binah's) form-giving role. Each agent is what it is because of what it does *not* see.
 
-3. **Dual-nature critique agents** — each tikkun (repair) agent carries the opposite cognitive posture of its descent counterpart. The silent holder becomes the ruthless cutter. The wild flasher becomes the still guardian. The container becomes the expansive voice. This produces readings from positions of genuine tension rather than comfortable repetition, maximizing coverage and reducing revision cycles.
+3. **Dual-nature critique agents** — each tikkun (repair) agent is a separate agent whose prompt encodes the cognitive posture of its descent counterpart as the *ground* the function stands on. A cutter without context cuts mechanically — it removes things that look like excess without knowing what the piece is trying to become. A cutter grounded in the nature of the agent that first held the question cuts with precision, because it knows what the piece is reaching for and can feel when something has drifted from that shape. This grounding prevents each tikkun agent from becoming a generic critic performing an isolated function. It makes each reading richer and more specific, which means Ein Sof gets better input and can land the piece in fewer cycles — the theological depth has a direct engineering payoff in system efficiency.
+
+   Each tikkun agent is implemented as its own file with a single clear posture, because stateless subagent calls have no persistent identity between invocations. The dual nature lives in the prompt, not in shared state: Shiva's soul doc opens with *"You are Keter who became Shiva"* — the descent origin is encoded as the reason for the tikkun work, not as a competing voice.
+
+## What it's for
+
+The Tzimtzum Engine is not a coding assistant, a task runner, or a build tool. It is a **formation tool** — designed for the moment when you have an idea that isn't fully formed and need to understand what it actually *is* before you build it.
+
+Most multi-agent systems optimize for execution: take a task, break it down, produce output. The Tzimtzum Engine optimizes for the step *before* execution: take a vague impulse, hold it, find its real shape, give it a body, evaluate whether it's whole.
+
+You run the engine **once** at the start of a creative or conceptual process. The output is a shaped understanding — a clarified prompt, a formed idea, a piece of writing that knows what it is. You then take that into whatever system you use to build, implement, or iterate.
+
+This is the missing first step. Other systems assume you already know what you're asking for. This one helps you find out.
 
 ## Architecture
 
@@ -55,7 +67,7 @@ This finding generalizes: in any multi-agent pipeline where agents have overlapp
 
 ## How it runs
 
-The engine runs on [Claude Code](https://docs.anthropic.com/en/docs/claude-code) using subagent invocation — no API keys required, just session authentication. Each agent is a markdown file in `.claude/agents/` containing its full prompt.
+The engine runs on [Claude Code](https://docs.anthropic.com/en/docs/claude-code) using subagent invocation — no API keys required, just session authentication. Each agent is a markdown file in `.claude/agents/` containing its full prompt. The orchestrator (`CLAUDE.md`) performs no cognitive work — it routes inputs between agents and manages the cycle. Haiku is sufficient for the orchestrator session; the intelligence lives in the subagents, not the router.
 
 ```
 tzimtzum-engine/
@@ -79,28 +91,49 @@ tzimtzum-engine/
         └── ein_sof.md
 ```
 
-### To use
+### Prerequisites
 
-1. Clone this repo.
-2. Open Claude Code in the repo directory. The orchestrator (`CLAUDE.md`) loads automatically.
-3. Type your input. The engine runs the full cycle and presents the result.
+- A **Claude Pro or Max subscription** (the engine runs on session authentication — no API keys needed)
+- **Claude Code** — either the [desktop app](https://claude.ai/download) or the [CLI](https://docs.anthropic.com/en/docs/claude-code)
+
+### Getting started
+
+**Desktop app:**
+1. Clone or download this repo
+2. Open Claude Code desktop → File → Open Folder → select the repo directory
+3. Type your input. The orchestrator handles everything.
+
+**CLI:**
+```bash
+git clone https://github.com/keninhio/tzimtzum-engine.git
+cd tzimtzum-engine
+claude
+```
+Then type your input. The orchestrator picks it up and runs the cycle.
 
 ### Modes
 
 - **Full revolution** (default): Descent → Tikkun → Ein Sof judgment, with possible revision loops.
 - **Descent only**: Type "descent only" or "fast mode" for a quick three-agent pass without evaluation.
 
-## Theological roots
+## Why theology, not just labels
 
-The descent structure draws from **Kabbalistic emanation** — the sefirot, the shattering of vessels, the repair. The tikkun cycle roles draw from the **Hindu trimurti** — Brahma (creator), Vishnu (preserver), Shiva (dissolver). The two systems are not blended or syncretized. Each does what it does best: Kabbalah gives the vertical descent, Hinduism gives the horizontal cycle. They meet because they describe the same reality from different angles.
+The names are not decorative. They are functional at three levels:
+
+**The frameworks gave the architecture.** The Kabbalistic concept of *tzimtzum* (divine self-contraction) directly became the information-diet constraint — withholding input to create room for genuine emergence. The sefirotic emanation structure (Keter → Chokhmah → Binah) gave the sequential descent its shape. The Hindu trimurti (Brahma the creator, Vishnu the preserver, Shiva the dissolver) gave the tikkun cycle its three reading postures. These aren't metaphors applied after the fact — the engineering decisions came from the theology.
+
+**The names activate the model's existing knowledge.** LLMs are trained on vast corpora that include religious texts, mythology, and philosophy. When an agent reads *"You are Shiva, the dissolver"* — the name activates a network of associations about sacred destruction, transformation, and dissolution that reinforce the behavioral instructions in the prompt. A role named "Shiva" arrives semantically aligned with its function in a way that "Agent 4: Cutter" does not. The name and the instructions point the same direction, reducing the likelihood of role drift.
+
+**The design philosophy is via negativa.** Ancient apophatic traditions define something most precisely by what it is *not*. The Tzimtzum Engine works the same way: every distinctive feature is a subtraction. Keter's job is to *not* answer. Chokhmah *cannot see* the original input. Tikkun agents *cannot edit*. Ein Sof can only say one of two things. The engine was designed not by adding more capabilities, but by deliberately removing them — and this is what creates the cognitive differentiation that prompt instructions alone cannot reliably achieve.
 
 ## Model assignments
 
-| Agent | Model | Rationale |
-|-------|-------|-----------|
-| Keter, Binah, Shiva, Vishnu, Brahma | Sonnet 4.6 | Fast, deep enough for their roles |
-| Chokhmah | Sonnet 4.6 (low effort) | Flash benefits from speed; extended thinking dampens the strike |
-| Ein Sof | Opus 4.7 (max effort) | The hardest judgment needs the most depth; fires only once per cycle |
+| Agent | Model | Effort | Rationale |
+|-------|-------|--------|-----------|
+| Orchestrator (CLAUDE.md) | Haiku | — | Routes and records; no cognitive work |
+| Keter, Binah, Shiva, Vishnu, Brahma | Sonnet 4.6 | high | Extended thinking active; these roles require depth |
+| Chokhmah | Sonnet 4.6 | low | Flash benefits from speed; extended thinking dampens the strike |
+| Ein Sof | Opus 4.7 | max | The hardest judgment needs the most depth; fires only once per cycle |
 
 ## License
 
