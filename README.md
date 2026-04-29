@@ -131,7 +131,7 @@ The names are not decorative. They are functional at three levels:
 
 | Agent | Model | Effort | Rationale |
 |-------|-------|--------|-----------|
-| Orchestrator (CLAUDE.md) | Sonnet or Opus | high or above | Routes, records and orchestrate. **DO NOT use Hiaku, the system will fail** |
+| Orchestrator (CLAUDE.md) | Sonnet or Opus | high or above | Routes, records and orchestrate. **DO NOT use Haiku, the system will fail** |
 | Keter, Binah, Shiva, Vishnu, Brahma | Sonnet 4.6 | high | Extended thinking active; these roles require depth |
 | Chokhmah | Sonnet 4.6 | low | Flash benefits from speed; extended thinking dampens the strike |
 | Ein Sof | Opus 4.7 | max | The hardest judgment needs the most depth; fires only once per cycle |
