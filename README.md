@@ -68,7 +68,7 @@ This finding generalizes: in any multi-agent pipeline where agents have overlapp
 
 ## How it runs
 
-The engine runs on [Claude Code](https://docs.anthropic.com/en/docs/claude-code) using subagent invocation — no API keys required, just session authentication. Each agent is a markdown file in `.claude/agents/` containing its full prompt. The orchestrator (`CLAUDE.md`) performs no cognitive work — it routes inputs between agents and manages the cycle. Haiku is sufficient for the orchestrator session; the intelligence lives in the subagents, not the router.
+The engine runs on [Claude Code](https://docs.anthropic.com/en/docs/claude-code) using subagent invocation — no API keys required, just session authentication. Each agent is a markdown file in `.claude/agents/` containing its full prompt. The orchestrator (`CLAUDE.md`) performs no cognitive work — it routes inputs between agents and manages the cycle. Sonnet is sufficient for the orchestrator session; the intelligence lives in the subagents, not the router.
 
 ```
 tzimtzum-engine/
