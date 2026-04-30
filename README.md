@@ -58,6 +58,12 @@ Binah's output → [Shiva: cut] + [Vishnu: preserve] + [Brahma: expand] → Ein 
 - **Wholeness over quality.** The evaluation criterion is not "is this good" but "is this whole." A piece is whole when revision would not make it more itself, only different.
 - **Hard cap at three tikkun cycles.** Prevents infinite loops. Maximum 24 API calls per run.
 
+## The output is a design brief, not a final draft
+
+Because every run is saved with the full transcript, you inherit the tikkun readings as a design brief for the next phase. You do not need Ein Sof to resolve Brahma's expansion points, Shiva's cuts, or Vishnu's protected bones. Ein Sof's only job is to declare: *this piece is itself now.* Your job, as the human builder, is to decide which of the tikkun notes you want to address in what you build next.
+
+This is a subtle but vital distinction. The engine is not trying to produce a perfect artifact. It is trying to produce a whole artifact — one that knows what it is, even where it remains incomplete. The incompleteness is structural, not a failure. The tikkun readings act like marginalia in a medieval manuscript: they do not overwrite the text, but they permanently enrich how you read and build from it.
+
 ## Key finding: Tzimtzum at the data level
 
 During calibration, we discovered that when Chokhmah received the original input alongside Keter's shape, it drifted into composing drafts instead of producing raw fragments — effectively doing Binah's job. Withholding the original input from Chokhmah forced it to strike against the contracted shape alone, keeping each agent in its lane.
