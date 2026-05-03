@@ -8,6 +8,42 @@ The Tzimtzum Engine is a framework for turning vague impulses into deployable ar
 
 The engine operates in two modules that mirror the Kabbalistic structure of creation: a concept phase that discovers the soul of an idea, and an embodiment phase that gives that soul a body ready for the world.
 
+```mermaid
+graph TD
+    subgraph concept["Module 1: The Concept Engine"]
+        direction TB
+        Input(["Raw idea / impulse"]) --> K["Keter — hold"]
+        K --> Ch["Chokhmah — flash"]
+        Ch --> B["Binah — form"]
+        B --> T1["Shiva — cut"]
+        B --> T2["Vishnu — preserve"]
+        B --> T3["Brahma — expand"]
+        T1 --> ES["Ein Sof — judge"]
+        T2 --> ES
+        T3 --> ES
+    end
+
+    ES -->|"transcript"| TM1
+
+    subgraph embody["Module 2: The Embodiment Engine"]
+        direction TB
+        TM1["Tiferet Move 1"] --> Cs["Chesed — open"]
+        TM1 --> Gv["Gevurah — hold"]
+        Cs --> TM2["Tiferet Move 2"]
+        Gv --> TM2
+        TM2 --> Nt["Netzach — endure"]
+        TM2 --> Hd["Hod — exclude"]
+        Nt --> TM3["Tiferet Move 3"]
+        Hd --> TM3
+        TM3 --> Y["Yesod — transmit"]
+    end
+
+    Y -->|"deployable stack"| M(["Malkuth — the world"])
+
+    style concept fill:#1a1a2e,stroke:#e94560,color:#eee
+    style embody fill:#1a1a2e,stroke:#0f3460,color:#eee
+```
+
 ---
 
 ## Module 1: The Concept Engine (Arich Anpin)
@@ -23,7 +59,7 @@ This engine takes a raw prompt and discovers its true shape, character, and soul
 
 **Call budget:** 7 per cycle, max 3 cycles. Up to 24 calls per run.
 
-→ [Full documentation](arich-anpin/README.md)
+→ [Full documentation](concept-engine/README.md)
 
 ---
 
@@ -42,7 +78,7 @@ The engine fires in two rounds — arms first (Chesed/Gevurah: character), then 
 
 **Call budget:** 8 calls per run. Fixed — no revision loops.
 
-→ [Full documentation](zeir-anpin/README.md)
+→ [Full documentation](embodiment-engine/README.md)
 
 ---
 
@@ -103,18 +139,18 @@ When blind pairs disagree, the synthesis agent (Tiferet) resolves contradictions
 
 **Getting started:**
 1. Clone this repo
-2. Open the module folder you want in Claude Code (e.g., `arich-anpin/` or `zeir-anpin/`)
+2. Open the module folder you want in Claude Code (e.g., `concept-engine/` or `embodiment-engine/`)
 3. Type your input. The orchestrator (`CLAUDE.md`) handles routing.
 
 ```bash
 git clone https://github.com/keninhio/tzimtzum-engine.git
 
 # For concept work only:
-cd tzimtzum-engine/arich-anpin
+cd tzimtzum-engine/concept-engine
 claude
 
 # For embodiment (feed it a completed transcript):
-cd tzimtzum-engine/zeir-anpin
+cd tzimtzum-engine/embodiment-engine
 claude
 ```
 
@@ -140,35 +176,35 @@ The names are not decorative. They are functional at three levels:
 
 ```
 tzimtzum-engine/
-├── README.md                          ← you are here
+├── README.md                              ← you are here
 ├── LICENSE
 │
-├── arich-anpin/                       ← Module 1: The Concept Engine
-│   ├── CLAUDE.md                      ← orchestrator
-│   ├── README.md                      ← full documentation
-│   ├── arich_anpin_spec.md            ← architecture spec
-│   └── .claude/agents/                ← 7 agents
-│       ├── keter.md                   # descent: the pause
-│       ├── chokhmah.md                # descent: the flash
-│       ├── binah.md                   # descent: the form
-│       ├── shiva.md                   # tikkun: the cut
-│       ├── vishnu.md                  # tikkun: the preserve
-│       ├── brahma.md                  # tikkun: the expand
-│       └── ein_sof.md                 # judgment: the whole
+├── concept-engine/                        ← Module 1: The Concept Engine (Arich Anpin)
+│   ├── CLAUDE.md                          ← orchestrator
+│   ├── README.md                          ← full documentation
+│   ├── arich_anpin_spec.md                ← architecture spec
+│   └── .claude/agents/                    ← 7 agents
+│       ├── keter.md                       # descent: the pause
+│       ├── chokhmah.md                    # descent: the flash
+│       ├── binah.md                       # descent: the form
+│       ├── shiva.md                       # tikkun: the cut
+│       ├── vishnu.md                      # tikkun: the preserve
+│       ├── brahma.md                      # tikkun: the expand
+│       └── ein_sof.md                     # judgment: the whole
 │
-└── zeir-anpin/                        ← Module 2: The Embodiment Engine
-    ├── CLAUDE.md                      ← orchestrator
-    ├── README.md                      ← full documentation
-    ├── zeir_anpin_spec.md             ← architecture spec
-    ├── .claude/agents/                ← 6 agents
-    │   ├── tiferet.md                 # the heart: soul-keeper
-    │   ├── chesed.md                  # right arm: what opens
-    │   ├── gevurah.md                 # left arm: what holds
-    │   ├── netzach.md                 # right leg: what endures
-    │   ├── hod.md                     # left leg: what yields
-    │   └── yesod.md                   # foundation: transmission
+└── embodiment-engine/                     ← Module 2: The Embodiment Engine (Zeir Anpin)
+    ├── CLAUDE.md                          ← orchestrator
+    ├── README.md                          ← full documentation
+    ├── zeir_anpin_spec.md                 ← architecture spec
+    ├── .claude/agents/                    ← 6 agents
+    │   ├── tiferet.md                     # the heart: soul-keeper
+    │   ├── chesed.md                      # right arm: what opens
+    │   ├── gevurah.md                     # left arm: what holds
+    │   ├── netzach.md                     # right leg: what endures
+    │   ├── hod.md                         # left leg: what yields
+    │   └── yesod.md                       # foundation: transmission
     └── examples/
-        └── calendar-app/yesod_stack/  ← example deployable output
+        └── calendar-app/yesod_stack/      ← example deployable output
 ```
 
 ---

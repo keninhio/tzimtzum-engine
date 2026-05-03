@@ -1,6 +1,6 @@
-# The Tzimtzum Engine
+# The Concept Engine (Arich Anpin)
 
-*A seven-agent engine for the moment before you know what you're building.*
+**Module 1 of the Tzimtzum Engine.** A seven-agent engine for the moment before you know what you're building.
 
 ---
 
@@ -77,9 +77,9 @@ This finding generalizes: in any multi-agent pipeline where agents have overlapp
 The engine runs on [Claude Code](https://docs.anthropic.com/en/docs/claude-code) using subagent invocation — no API keys required, just session authentication. Each agent is a markdown file in `.claude/agents/` containing its full prompt. The orchestrator (`CLAUDE.md`) performs no cognitive work — it routes inputs between agents and manages the cycle. Sonnet is sufficient for the orchestrator session; the intelligence lives in the subagents, not the router.
 
 ```
-tzimtzum-engine/
+concept-engine/
 ├── CLAUDE.md                  # orchestrator — routes the cycle
-├── tzimtzum_engine.md         # architecture spec
+├── arich_anpin_spec.md        # architecture spec
 ├── .claude/agents/
 │   ├── keter.md               # descent: the pause
 │   ├── chokhmah.md            # descent: the flash
@@ -113,7 +113,7 @@ tzimtzum-engine/
 **CLI:**
 ```bash
 git clone https://github.com/keninhio/tzimtzum-engine.git
-cd tzimtzum-engine
+cd tzimtzum-engine/concept-engine
 claude
 ```
 Then type your input. The orchestrator picks it up and runs the cycle.
@@ -144,4 +144,4 @@ The names are not decorative. They are functional at three levels:
 
 ## License
 
-[MIT](LICENSE)
+[MIT](../LICENSE)
