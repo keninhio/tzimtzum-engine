@@ -8,40 +8,7 @@ The Tzimtzum Engine is a framework for turning vague impulses into deployable ar
 
 The engine operates in two modules that mirror the Kabbalistic structure of creation: a concept phase that discovers the soul of an idea, and an embodiment phase that gives that soul a body ready for the world.
 
-```mermaid
-%%{init: {'theme': 'base', 'themeVariables': {'lineColor': '#58a6ff', 'primaryColor': '#161b22', 'primaryTextColor': '#c9d1d9', 'primaryBorderColor': '#58a6ff', 'secondaryColor': '#0d1117', 'tertiaryColor': '#21262d'}}}%%
-graph TD
-    subgraph concept["Module 1: The Concept Engine"]
-        direction TB
-        Input(["Raw idea / impulse"]) --> K["Keter — hold"]
-        K --> Ch["Chokhmah — flash"]
-        Ch --> B["Binah — form"]
-        B --> T1["Shiva — cut"]
-        B --> T2["Vishnu — preserve"]
-        B --> T3["Brahma — expand"]
-        T1 --> ES{"Ein Sof — judge"}
-        T2 --> ES
-        T3 --> ES
-        ES -.->|"revise"| K
-    end
-
-    ES ==>|"land → transcript"| TM1
-
-    subgraph embody["Module 2: The Embodiment Engine"]
-        direction TB
-        TM1["Tiferet Move 1"] --> Cs["Chesed — open"]
-        TM1 --> Gv["Gevurah — hold"]
-        Cs --> TM2["Tiferet Move 2"]
-        Gv --> TM2
-        TM2 --> Nt["Netzach — endure"]
-        TM2 --> Hd["Hod — exclude"]
-        Nt --> TM3["Tiferet Move 3"]
-        Hd --> TM3
-        TM3 --> Y["Yesod — transmit"]
-    end
-
-    Y ==>|"deployable stack"| M(["Malkuth — the world"])
-```
+![The Tzimtzum Creation Engine — Full Pipeline](tzimtzum_engine_diagram.png)
 
 ---
 
