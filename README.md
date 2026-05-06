@@ -95,6 +95,12 @@ When blind pairs disagree, the synthesis agent (Tiferet) resolves contradictions
 2. **Side with soul** — choose the voice closer to the original concept, address the other's concern elsewhere (real contradiction)
 3. **Hold both** — recognize that the positions already agree under the surface language (false contradiction)
 
+### Left pillar bias (restriction over expansion)
+During testing of the Embodiment Engine, the restrictive agents (Gevurah/Hod — the Left Pillar) consistently overpowered the expansive agents (Chesed/Netzach — the Right Pillar). The engine successfully stripped away generic "AI slop" and corporate design clichés, but occasionally overcorrected, producing outputs that were overly austere. Gevurah's constraint against "design theater" dominated Chesed's push for generative beauty, leading Tiferet to synthesize a highly minimalist product. **This appears to be an inherent property of how LLMs process constraint structures:** via negativa instructions ("do not do X") are unambiguous and enforceable, while expansive instructions ("be generously beautiful") are vague and interpretable. The restrictive agents get more leverage not because their prompts are stronger, but because the model can execute restriction more precisely than expansion. Future prompt-weighting will explore giving the Right Pillar more defensive leverage without violating the structural constraints.
+
+### Revision cycle under pressure
+In most test runs, Ein Sof (the judgment agent) lands the piece as "whole" in a single tikkun cycle. In one run with a more challenging input, Ein Sof triggered revision for all three cycles and hit the hard cap without declaring the piece whole — the first observed instance of this behavior. This confirms the hard cap is load-bearing (the engine will not loop indefinitely) and suggests that certain input types may benefit from a higher cycle budget or a different exit condition. Further testing will determine whether hard-cap hits correlate with input complexity, prompt ambiguity, or model capacity.
+
 ---
 
 ## How It Runs
