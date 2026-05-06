@@ -95,11 +95,11 @@ When blind pairs disagree, the synthesis agent (Tiferet) resolves contradictions
 2. **Side with soul** — choose the voice closer to the original concept, address the other's concern elsewhere (real contradiction)
 3. **Hold both** — recognize that the positions already agree under the surface language (false contradiction)
 
-### Left pillar bias (restriction over expansion)
-During testing of the Embodiment Engine, the restrictive agents (Gevurah/Hod — the Left Pillar) consistently overpowered the expansive agents (Chesed/Netzach — the Right Pillar). The engine successfully stripped away generic "AI slop" and corporate design clichés, but occasionally overcorrected, producing outputs that were overly austere. Gevurah's constraint against "design theater" dominated Chesed's push for generative beauty, leading Tiferet to synthesize a highly minimalist product. **This appears to be an inherent property of how LLMs process constraint structures:** via negativa instructions ("do not do X") are unambiguous and enforceable, while expansive instructions ("be generously beautiful") are vague and interpretable. The restrictive agents get more leverage not because their prompts are stronger, but because the model can execute restriction more precisely than expansion. Future prompt-weighting will explore giving the Right Pillar more defensive leverage without violating the structural constraints.
+### Restriction is easier than expansion (for LLMs)
+Via negativa instructions ("do not do X") are unambiguous and enforceable. Expansive instructions ("be generously beautiful") are vague and interpretable. In multi-agent systems where some agents restrict and others expand, the restrictive agents get more leverage not because their prompts are stronger, but because the model can execute restriction more precisely than expansion. This was observed in the Embodiment Engine: the Left Pillar agents (Gevurah/Hod) consistently produced sharper, more specific output than the Right Pillar agents (Chesed/Netzach), leading the synthesis agent to weight their contributions more heavily. **An open question:** in early testing, this bias may partly reflect the input — a concept whose soul was already about restraint will naturally produce austere output. More test runs across different input types are needed to separate engine bias from input properties.
 
-### Revision cycle under pressure
-In most test runs, Ein Sof (the judgment agent) lands the piece as "whole" in a single tikkun cycle. In one run with a more challenging input, Ein Sof triggered revision for all three cycles and hit the hard cap without declaring the piece whole — the first observed instance of this behavior. This confirms the hard cap is load-bearing (the engine will not loop indefinitely) and suggests that certain input types may benefit from a higher cycle budget or a different exit condition. Further testing will determine whether hard-cap hits correlate with input complexity, prompt ambiguity, or model capacity.
+### Hard-cap hit and medium mismatch
+In most runs, Ein Sof lands the piece as "whole" in a single tikkun cycle. In one run ([full transcript](concept-engine/examples/hard_cap_run_calendar.md)), Ein Sof triggered revision for all three cycles and hit the hard cap without landing. Analysis of the transcript reveals a consistent pattern across all three cycles: Binah produces increasingly refined philosophical prose, each cycle more embodied and beautiful than the last — but Brahma correctly notes in every cycle that the reader still "cannot see the thing." The concept engine is optimized for finding the *soul* of an idea, not producing visual specifications. When the input asks for a design, the engine keeps deepening the *writing* without answering the *design question*. **This is not a failure — it is the engine correctly signaling that the concept is ready for the Embodiment Engine.** The hard cap functions as intended: it prevents infinite loops and produces a transcript that, while not "whole" by Ein Sof's standard, contains genuinely rich material for Module 2 to embody.
 
 ---
 
@@ -163,6 +163,8 @@ tzimtzum-engine/
 │       ├── vishnu.md                      # tikkun: the preserve
 │       ├── brahma.md                      # tikkun: the expand
 │       └── ein_sof.md                     # judgment: the whole
+│   └── examples/
+│       └── hard_cap_run_calendar.md       ← example: 3-cycle run that hit hard cap
 │
 └── embodiment-engine/                     ← Module 2: The Embodiment Engine (Zeir Anpin)
     ├── CLAUDE.md                          ← orchestrator
